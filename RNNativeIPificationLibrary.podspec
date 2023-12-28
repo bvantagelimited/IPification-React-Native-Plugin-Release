@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNNativeIPificationLibrary"
-  s.version      = "2.0.10"
+  s.version      = "2.0.11"
   s.summary      = "RNNativeIPificationLibrary"
   s.description  = <<-DESC
                   RNNativeIPificationLibrary

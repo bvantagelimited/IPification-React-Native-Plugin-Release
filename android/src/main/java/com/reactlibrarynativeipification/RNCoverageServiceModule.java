@@ -39,7 +39,11 @@ public class RNCoverageServiceModule extends ReactContextBaseJavaModule {
             @Override
             public void onSuccess(CoverageResponse coverageResponse) {
                 Log.d("DEBUG", "onSuccess " + coverageResponse.isAvailable());
-                callback.invoke(null, coverageResponse.isAvailable(), coverageResponse.getOperatorCode());
+                if(coverageResponse.isAvailable()){
+                    callback.invoke("", coverageResponse.isAvailable(), coverageResponse.getOperatorCode());
+                }else{
+                    callback.invoke("unsupported telco", coverageResponse.isAvailable(), coverageResponse.getOperatorCode());
+                }
             }
 
             @Override
@@ -58,14 +62,18 @@ public class RNCoverageServiceModule extends ReactContextBaseJavaModule {
     public void checkCoverageWithPhoneNumber(String phoneNumber, final Callback callback) {
         Log.d("DEBUG", "library checkCoverage");
         if(phoneNumber.equals("")){
-            callback.invoke("phone number cannot be empty", null);
+            callback.invoke("phone number cannot be empty", false);
             return;
         }
         checkCoverage(phoneNumber, new CellularCallback<CoverageResponse>() {
             @Override
             public void onSuccess(CoverageResponse coverageResponse) {
                 Log.d("DEBUG", "onSuccess " + coverageResponse.isAvailable());
-                callback.invoke(null, coverageResponse.isAvailable(), coverageResponse.getOperatorCode());
+                if(coverageResponse.isAvailable()){
+                    callback.invoke("", coverageResponse.isAvailable(), coverageResponse.getOperatorCode());
+                }else{
+                    callback.invoke("unsupported telco", coverageResponse.isAvailable(), coverageResponse.getOperatorCode());
+                }
             }
 
             @Override
