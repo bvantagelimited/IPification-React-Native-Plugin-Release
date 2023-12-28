@@ -1,0 +1,46 @@
+
+buildscript {
+    repositories {
+        google()
+
+        jcenter()
+        mavenCentral()
+
+    }
+
+    dependencies {
+        
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 31
+        versionCode 2016
+        versionName "2.0.16"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://artifacts.ipification.com/artifactory/mobile-libs-release/"
+    }
+}
+
+dependencies {
+    implementation 'com.ipification.mobile.android:ipification-auth:2.0.16'
+    implementation 'com.facebook.react:react-native:+'
+}
+  
