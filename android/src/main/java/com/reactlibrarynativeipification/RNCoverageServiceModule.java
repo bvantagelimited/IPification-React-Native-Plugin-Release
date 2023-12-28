@@ -45,7 +45,7 @@ public class RNCoverageServiceModule extends ReactContextBaseJavaModule {
             @Override
             public void onError(CellularException e) {
                 Log.d("DEBUG", "library onError " + e.getErrorMessage());
-                callback.invoke(e.getErrorMessage(), null);
+                callback.invoke(e.getErrorMessage(), false);
             }
             @Override
             public void onIMCancel() {
@@ -71,7 +71,7 @@ public class RNCoverageServiceModule extends ReactContextBaseJavaModule {
             @Override
             public void onError(CellularException e) {
                 Log.d("DEBUG", "library onError " + e.getErrorMessage());
-                callback.invoke(e.getErrorMessage(), null);
+                callback.invoke(e.getErrorMessage(), false);
             }
             @Override
             public void onIMCancel() {

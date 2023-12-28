@@ -12,11 +12,11 @@ import IPificationSDK
         let coverageService = CoverageService()
         coverageService.callbackFailed = { (error) -> Void in
             //          print(error.localizedDescription)
-            callback([error.localizedDescription, NSNull()])
+            callback([error.localizedDescription, false])
         }
         coverageService.callbackSuccess = { (response) -> Void in
             //           print("check coverage result: ", response.isAvailable())
-            callback([NSNull(), response.isAvailable(), response.getOperatorCode])
+            callback([NSNull(), response.isAvailable(), response.getOperatorCode()])
         }
         
         coverageService.checkCoverage()
@@ -34,7 +34,7 @@ import IPificationSDK
             let coverageService = CoverageService()
             coverageService.callbackFailed = { (error) -> Void in
                 //          print(error.localizedDescription)
-                callback([error.localizedDescription, NSNull()])
+                callback([error.localizedDescription, false])
             }
             coverageService.callbackSuccess = { (response) -> Void in
                 //           print("check coverage result: ", response.isAvailable())
@@ -43,7 +43,7 @@ import IPificationSDK
             try coverageService.checkCoverage(phoneNumber: phoneNumber)
         } catch{
             print("Unexpected error: \(error).")
-            callback([error.localizedDescription, NSNull()])
+            callback([error.localizedDescription, false])
         }
     }
     
