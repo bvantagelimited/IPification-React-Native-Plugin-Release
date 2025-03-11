@@ -14,7 +14,7 @@ import UIKit
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ConnectionManager {
-  public static func checkOnly3G() -> (Swift.Bool, Swift.Bool)
+  public static func checkOnly3G() -> (Swift.Bool, Swift.Bool, Swift.String?, Swift.String?)
   @objc deinit
 }
 public protocol ResponseProtocol : AnyObject {
@@ -193,6 +193,7 @@ public enum IPEnvironment {
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class IPConfiguration : ObjectiveC.NSObject {
   final public let CURRENT_VERSION: Swift.String
+  public var SDK_TYPE_VALUE: Swift.String
   public var enableCarrierHeaders: Swift.Bool
   public var STATE_LENGTH: Swift.Int
   public var CoverageReadTimeout: Swift.Double

@@ -83,6 +83,7 @@ public class RNIPConfigurationModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void setClientId(String clientId, Promise p) {
+        IPConfiguration.getInstance().setSDK_TYPE_VALUE("react-native");
         IPConfiguration.getInstance().setCLIENT_ID(clientId);
     }
 

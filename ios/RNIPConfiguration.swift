@@ -25,6 +25,7 @@ import UIKit
     }
 
     @objc func setClientId(_ value: String)-> Void{
+        IPConfiguration.sharedInstance.SDK_TYPE_VALUE = "react-native"
         IPConfiguration.sharedInstance.CLIENT_ID = value
     }
 
